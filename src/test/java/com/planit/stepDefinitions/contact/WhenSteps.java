@@ -3,7 +3,8 @@ package com.planit.stepDefinitions.contact;
 import com.planit.stepDefinitions.StepDefinitionsBase;
 import com.planit.testData.ContactTab;
 import com.planit.utils.CucumberTestContext;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.When;
+
 
 public class WhenSteps extends StepDefinitionsBase {
     private final ContactTab contactTab;

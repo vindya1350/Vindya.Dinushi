@@ -1,6 +1,7 @@
 package com.planit.utils;
 
 import com.planit.pageObjects.BasePage;
+import com.planit.pageObjects.LoginHomePage;
 import com.planit.pageObjects.carting.CartPage;
 import com.planit.pageObjects.contact.ContactSubmissionPage;
 import com.planit.pageObjects.products.ProductsListPage;
@@ -11,6 +12,7 @@ public class PageObjectManager {
     private ContactSubmissionPage contactSubmissionPage;
     private CartPage cartPage;
     private ProductsListPage productsListPage;
+    private LoginHomePage loginHomePage;
 
     public PageObjectManager() {
     }
@@ -21,6 +23,10 @@ public class PageObjectManager {
 
     public ContactSubmissionPage contactSubmissionPage() {
         return (contactSubmissionPage == null) ? contactSubmissionPage = new ContactSubmissionPage() : contactSubmissionPage;
+    }
+
+    public LoginHomePage loginHomePage() {
+        return (loginHomePage == null) ? loginHomePage = new LoginHomePage() : loginHomePage;
     }
 
     public CartPage cartPage() {

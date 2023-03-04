@@ -3,8 +3,11 @@ package com.planit.stepDefinitions.carting;
 import com.planit.stepDefinitions.StepDefinitionsBase;
 import com.planit.testData.ResourceList;
 import com.planit.utils.CucumberTestContext;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+
+import java.text.ParseException;
+
 
 public class ThenSteps extends StepDefinitionsBase {
     private final ResourceList resourceList;
@@ -15,7 +18,7 @@ public class ThenSteps extends StepDefinitionsBase {
     }
 
     @Then("I can see correct quantity, product and subtotal are correct")
-    public void iCanSeeCorrectQuantityAndProductPriceAreCorrect() {
+    public void iCanSeeCorrectQuantityAndProductPriceAreCorrect() throws ParseException {
         Pages().cartPage().verifyPriceAndQuantityAgainstProduct(resourceList);
     }
 

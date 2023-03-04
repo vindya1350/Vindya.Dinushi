@@ -1,8 +1,8 @@
 Feature: Shopping Toys
 
-  @Test
+  @run
   Scenario: Verify total cost of bought toys are correct
-    Given I am in the shopping site
+    Given I login to site
     When I am in shop page
     And I buy following items
       | Product        | Count |

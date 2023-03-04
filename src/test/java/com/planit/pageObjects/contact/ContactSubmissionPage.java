@@ -9,23 +9,19 @@ import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selectors.*;
 
 public class ContactSubmissionPage extends BasePage {
 
-    private final static String errMsgLocator = "//*[@id='%s-err]";
+    private final static String errMsgLocator = "//*[@id='%s-err']";
 
-    SelenideElement contactTab = $(By.id("nav-contact"));
-    SelenideElement submitButton = $(By.xpath(" //*[text()='Submit']"));
-    SelenideElement foreName = $(By.id("forename"));
-    SelenideElement email = $(By.id("email"));
-    SelenideElement message = $(By.id("nav-contact"));
-    SelenideElement successMsgP1 = $(By.xpath("//*[@class='ng-binding']"));
-    SelenideElement successMsgP2 = $(By.xpath("//*[@class='alert alert-success']"));
-
-
-
+    SelenideElement contactTab = $(byId("nav-contact"));
+    SelenideElement submitButton = $(byXpath(" //*[text()='Submit']"));
+    SelenideElement foreName = $(byId("forename"));
+    SelenideElement email = $(byId("email"));
+    SelenideElement message = $(byId("message"));
+    SelenideElement successMsg = $(byXpath("//*[@class='ng-binding']"));
     public ContactSubmissionPage() {
-
     }
 
     public void clickOnSubmitButton() {
@@ -60,9 +56,7 @@ public class ContactSubmissionPage extends BasePage {
 
     public void successMsgIsVisible(String part1, String part2) {
         sleep(7000);
-        waitAndAssertVisibility(3, successMsgP1, "Element is Not visible");
-        successMsgP1.shouldHave(Condition.text(part1));
-        waitAndAssertVisibility(3, successMsgP2, "Element is Not visible");
-        successMsgP2.shouldHave(Condition.text(part1));
+        waitAndAssertVisibility(3, successMsg, "Element is Not visible");
+        successMsg.shouldHave(Condition.text(part1));
     }
 }

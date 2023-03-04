@@ -1,0 +1,149 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-03-04T07:45:17.004Z",
+        "before": [
+          {
+            "result": {
+              "duration": 143025000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.planit.stepDefinitions.Hooks.setUp(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Verify total cost of bought toys are correct",
+        "description": "",
+        "id": "shopping-toys;verify-total-cost-of-bought-toys-are-correct",
+        "after": [
+          {
+            "result": {
+              "duration": 96000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.planit.stepDefinitions.Hooks.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6931839000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I login to site",
+            "match": {
+              "location": "com.planit.stepDefinitions.contact.GivenSteps.iLoginToSite()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5277411000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am in shop page",
+            "match": {
+              "location": "com.planit.stepDefinitions.carting.WhenSteps.iAmInShopPage()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1534477000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I buy following items",
+            "match": {
+              "location": "com.planit.stepDefinitions.carting.WhenSteps.iBuyFollowingItems(java.util.List\u003cjava.util.Map\u003cjava.lang.String, java.lang.String\u003e\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Product",
+                  "Count"
+                ]
+              },
+              {
+                "cells": [
+                  "Stuffed Frog",
+                  "2"
+                ]
+              },
+              {
+                "cells": [
+                  "Fluffy Bunny",
+                  "5"
+                ]
+              },
+              {
+                "cells": [
+                  "Valentine Bear",
+                  "3"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3171167000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I navigate to cart page",
+            "match": {
+              "location": "com.planit.stepDefinitions.carting.WhenSteps.iNavigateToCartPage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 219439000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I can see correct quantity, product and subtotal are correct",
+            "match": {
+              "location": "com.planit.stepDefinitions.carting.ThenSteps.iCanSeeCorrectQuantityAndProductPriceAreCorrect()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 50172000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I can see Total cost is correct",
+            "match": {
+              "location": "com.planit.stepDefinitions.carting.ThenSteps.iCanSeeTotalCostIsCorrect()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@run"
+          }
+        ]
+      }
+    ],
+    "name": "Shopping Toys",
+    "description": "",
+    "id": "shopping-toys",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/planit/features/carting/ui/ShopingToys.feature",
+    "tags": []
+  }
+]

@@ -6,19 +6,23 @@ import com.planit.testData.ResourceList;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import java.util.Arrays;
+import java.text.DecimalFormat;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class CartPage extends BasePage {
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     private final static String priceLocator = "//*[text()=' %s']/following-sibling::td[1]";
     private final static String quantityLocator = "//*[text()=' %s']/following-sibling::td[2]/input";
     private final static String subtotalLocator = "//*[text()=' %s']/following-sibling::td[3]";
 
-    SelenideElement shopTab = $(By.id("nav-shop"));
-    SelenideElement cartIcon = $(By.id("nav-cart"));
-    SelenideElement totalCost = $(By.xpath("//tfoot//*[contains(text(),'Total')]"));
+    SelenideElement shopTab = $(byId("nav-shop"));
+    SelenideElement cartIcon = $(byId("nav-cart"));
+    SelenideElement totalCost = $(byXpath("//tfoot//*[contains(text(),'Total')]"));
 
     public CartPage() {
 
@@ -37,33 +41,35 @@ public class CartPage extends BasePage {
     public void verifyPriceAndQuantityAgainstProduct(ResourceList resourceList) {
         for (int i = 0; i < resourceList.productPrices.size(); i++) {
             String productName = resourceList.productNames.get(i);
-            SelenideElement priceOnCartPage = $(By.xpath(String.format(priceLocator, resourceList.productPrices.get(productName))));
-            SelenideElement quantityOnCartPage = $(By.xpath(String.format(quantityLocator, resourceList.productPrices.get(productName))));
+            SelenideElement priceOnCartPage = $(By.xpath(String.format(priceLocator, productName)));
+            SelenideElement quantityOnCartPage = $(By.xpath(String.format(quantityLocator, productName)));
+            SelenideElement subTotalOnCartPage = $(By.xpath(String.format(subtotalLocator, productName)));
 
-            Assert.assertEquals(priceOnCartPage.getText(), resourceList.productPrices.get(i));
-            Assert.assertEquals(quantityOnCartPage.getAttribute("value"), resourceList.productCount.get(i));
+            Assert.assertEquals(resourceList.productCount.get(i), quantityOnCartPage.getAttribute("value"));
+            Assert.assertEquals(resourceList.productPrices.get(productName), priceOnCartPage.getText());
 
             String actualSubTotal = getSubTotal(priceOnCartPage.getText(), quantityOnCartPage.getAttribute("value"));
-            SelenideElement subTotalCartPage = $(By.xpath(String.format(subtotalLocator, resourceList.productPrices.get(productName))));
-            Assert.assertEquals(subTotalCartPage.getText(), "$" + actualSubTotal);
+            subTotalOnCartPage.shouldHave(text("$" + actualSubTotal));
         }
     }
 
     private String getSubTotal(String price, String quantity) {
-        int tempPrice = Integer.parseInt(Arrays.toString(price.split("$")));
+        String temp = price.replace("$", "");
+        float tempPrice = Float.parseFloat(temp);
         int tempQuantity = Integer.parseInt(quantity);
-        return String.valueOf(tempPrice * tempQuantity);
+        return String.valueOf(df.format(tempPrice * tempQuantity));
     }
 
     public void verifyTotalCost(ResourceList resourceList) {
-        int total = 0;
+        float total = 0;
         for (int i = 0; i < resourceList.productPrices.size(); i++) {
             String productName = resourceList.productNames.get(i);
-            SelenideElement subTotalCartPage = $(By.xpath(String.format(subtotalLocator, resourceList.productPrices.get(productName))));
-            int tempSubTotal = Integer.parseInt(Arrays.toString(subTotalCartPage.getText().split("$")));
+            SelenideElement subTotalCartPage = $(By.xpath(String.format(subtotalLocator, productName)));
+            String temp = subTotalCartPage.getText().replace("$", "");
+            float tempSubTotal = Float.parseFloat(temp);
             total = total + tempSubTotal;
         }
         String finalTotal = String.valueOf(total);
-        Assert.assertEquals(totalCost.getText(), "$" + finalTotal);
+        Assert.assertEquals(totalCost.getText(), "Total: " + finalTotal);
     }
 }

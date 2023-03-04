@@ -3,9 +3,10 @@ package com.planit.stepDefinitions.contact;
 import com.planit.stepDefinitions.StepDefinitionsBase;
 import com.planit.testData.ContactTab;
 import com.planit.utils.CucumberTestContext;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +20,8 @@ public class ThenSteps extends StepDefinitionsBase {
 
     @Then("^I can see following error messages are populated for Mandatory fields")
     public void iCanSeeFollowingErrorMessagesArePopulatedForMandatoryFields(List<Map<String, String>> errorMsgList) {
+        contactTab.mandoryErrList = new ArrayList<>();
+        contactTab.fieldNameList = new ArrayList<>();
         for (Map<String, String> msg : errorMsgList) {
             Pages().contactSubmissionPage().verifyMandatoryFieldErrorMsg(msg.get("FieldName"), msg.get("ErrorMsg"));
             contactTab.mandoryErrList.add(msg.get("ErrorMsg"));

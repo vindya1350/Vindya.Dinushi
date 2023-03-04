@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+    <parameter name="Browser" value="Chrome-Mac"/>
+    <parameter name="Headless" value="false"/>
+    <parameter name="EnvironmentName" value="automation"/>
+
+    <parameter name="BaseURL" value="http://jupiter.cloud.planittesting.com"/>
+    <parameter name="SiteName" value="jupiter.cloud.planittesting.com"/>
+    <parameter name="V2BaseURL" value="https://apiau.intelligencebank.com"/>
+
+    <!--
+
+    <parameter name="BaseURL" value="https://preprodsanity.intelligencebank.com"/>
+    <parameter name="SiteName" value="preprodsanity.intelligencebank.com"/>
+    <parameter name="V2BaseURL" value="https://apiau.intelligencebank.com"/>
+
+ <parameter name="BaseURL" value="https://usupgradesanity.intelligencebank.com"/>
+    <parameter name="SiteName" value="usupgradesanity.intelligencebank.com"/>
+    <parameter name="V2BaseURL" value="https://apidev-us-stage1.intelligencebank.com"/>
+
+    <parameter name="BaseURL" value="https://prodausanityupgrade.intelligencebank.com"/>
+    <parameter name="SiteName" value="prodausanityupgrade.intelligencebank.com"/>
+    <parameter name="V2BaseURL" value="https://apiau.intelligencebank.com"/>
+
+        <parameter name="BaseURL" value="https://qatestau.intelligencebank.com"/>
+        <parameter name="SiteName" value="qatestau.intelligencebank.com"/>
+        <parameter name="V2BaseURL" value="https://apica.intelligencebank.com"/>
+
+                    <parameter name="BaseURL" value="https://vindyatest1.intelligencebank.com"/>
+                    <parameter name="SiteName" value="vindyatest1.intelligencebank.com"/>
+                    <parameter name="V2BaseURL" value="https://apiau.intelligencebank.com"/>
+
+                   <parameter name="BaseURL" value="https://vindyatest1.intelligencebank.com"/>
+                   <parameter name="SiteName" value="vindyatest1.intelligencebank.com"/>
+                   <parameter name="V2BaseURL" value="https://apiau.intelligencebank.com"/>
+
+                  <parameter name="BaseURL" value="https://usupgradesanity.intelligencebank.com"/>
+                  <parameter name="SiteName" value="usupgradesanity.intelligencebank.com"/>
+                  <parameter name="V2BaseURL" value="https://apidev-us-stage1.intelligencebank.com"/>
+
+                  <parameter name="BaseURL" value="https://prodausanityupgrade.intelligencebank.com"/>
+                  <parameter name="SiteName" value="prodausanityupgrade.intelligencebank.com"/>
+                  <parameter name="V2BaseURL" value="https://apiau.intelligencebank.com"/>
+
+                  <parameter name="BaseURL" value="https://produssanityupgrade.intelligencebank.com"/>
+                  <parameter name="SiteName" value="produssanityupgrade.intelligencebank.com"/>
+                  <parameter name="V2BaseURL" value="https://apius.intelligencebank.com"/>
+
+                  <parameter name="BaseURL" value="https://vindyatest1.intelligencebank.com/"/>
+                  <parameter name="SiteName" value="vindyatest1.intelligencebank.com"/>
+                  <parameter name="V2BaseURL" value="https://apiau.intelligencebank.com"/>
+
+                  <parameter name="BaseURL" value="https://prodeusanityupgrade.intelligencebank.com"/>
+                  <parameter name="SiteName" value="prodeusanityupgrade.intelligencebank.com"/>
+                  <parameter name="V2BaseURL" value="https://euprod2yapi.intelligencebank.com"/>
+
+                  <parameter name="BaseURL" value="https://prodcasanityupgrade.intelligencebank.com"/>
+                  <parameter name="SiteName" value="prodcasanityupgrade.intelligencebank.com"/>
+                  <parameter name="V2BaseURL" value="https://apica.intelligencebank.com"/>
+                         -->
+<!--    <parameter name="APIBaseURL" value="https://lbstagev3.intelligencebank.com"/>-->
+<!--    <parameter name="UploadFilePath" value="./src/test/resources/files/"/>-->
+<!--    <parameter name="TemplateFilePath" value="./src/test/resources/files/"/>-->
+<!--    <parameter name="VideoFile" value="TEST-ANIYA-PLC-1.19_20200131-0905_8hlaajzbuam3umda.trm"/>-->
+<!--    <parameter name="LogsheetFile" value="TEST-ANIYA-PLC-1.19_20200131-0905_8hlaajzoakndne7z.fls"/>-->
+<!--    <parameter name="AWSSourceDir" value="ANIYA"/>-->
+<!--    <parameter name="MetadataFile" value="Aniya_20200109_TEST-ANIYA-PLC-1.19.json"/>-->
+<!--    <parameter name="RemoteConnector" value="9854df3120644fb788c8d88dd7672a9d"/>-->
+<!--    <parameter name="MongoServer" value="10.2.10.162"></parameter>-->
+<!--    <parameter name="MongoDb" value="sanitytest"></parameter>-->
+
+
+    <test name="MyTesting">
+        <classes>
+            <!--            <class name="com.intelligencebank.cucumberOptions.SmokeTestRunner"/>-->
+            <!-- <class name="com.intelligencebank.cucumberOptions.SanityTestRunner"/>-->
+            <class name="com.planit.cucumberOptions.SanityTestRunner"/>
+        </classes>
+    </test>
+</suite>
