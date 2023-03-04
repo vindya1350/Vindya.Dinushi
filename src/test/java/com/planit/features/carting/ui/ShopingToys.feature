@@ -1,6 +1,5 @@
 Feature: Shopping Toys
 
-  @run
   Scenario: Verify total cost of bought toys are correct
     Given I login to site
     When I am in shop page
